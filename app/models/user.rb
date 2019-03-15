@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :league_users
+  has_many :user_players
+  has_many :players, through: :user_players
   has_many :leagues, through: :league_users
 
   validates :full_name, presence: true, length: {minimum: 3, maximum: 30}

@@ -1,4 +1,10 @@
 class Player < ApplicationRecord
+  belongs_to :country
+  has_many :league_users
+  has_many :user_players
+  has_many :users, through: :user_players
+  has_many :leagues, through: :league_users
+
   validates_presence_of :Name, 
                         :Age, 
                         :Photo, 
