@@ -43,5 +43,6 @@ class Player < ApplicationRecord
                         :Standing_tackle,
                         :Strength,
                         :Vision,
-                        :Volleys
+                        :Volleys,
+                        :country_id
 end 
