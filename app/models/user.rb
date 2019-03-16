@@ -1,7 +1,5 @@
 class User < ApplicationRecord
   has_many :league_users
-  has_many :user_players
-  has_many :players, through: :user_players
   has_many :leagues, through: :league_users
 
   validates :full_name, presence: true, length: {minimum: 3, maximum: 30}
@@ -12,5 +10,5 @@ class User < ApplicationRecord
   validates :email, presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false}, format: {with: VALID_EMAIL_REGEX}
 
   has_secure_password
-  validates :password, presence: true, on:create
+  validates :password, presence: true, on: :create
 end

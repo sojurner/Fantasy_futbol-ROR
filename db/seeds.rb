@@ -9,7 +9,7 @@ end
 players = File.read('./seed_data/scrapedPlayers_all.json')
 JSON.parse(players).each do |player|
   nation_origin = Country.find_by(name: player["Nationality"]) 
-  Player.create(
+  PlayerStats.create(
     Name: player["Name"],
     Age: player["Age"],
     Photo: player["Photo"],

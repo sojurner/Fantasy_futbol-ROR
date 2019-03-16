@@ -40,5 +40,6 @@ module FantasyFutbolApi
         resource '*', headers: :any, methods: [:get, :post, :delete, :options]
       end
     end
+
   end
 end
