@@ -58,12 +58,3 @@ JSON.parse(players).each do |player|
     country_id: nation_origin.id
   )
 end
-
-User.create(full_name: "Paul Kim", user_name: "pykim0591", email: "bs@gmail.com", password: "lalakers")
-User.create(full_name: "John Tan", user_name: "jctan", email: "jctan@gmail.com", password: "ladodgers")
-User.create(full_name: "Ben Paige", user_name: "bp22", email: "bp@gmail.com", password: "duducks")
-
-League.create(name: "Pauls crazy mfos", id: "1")
-League.create(name: "Johns crazy mfos", id: "2")
-League.create(name: "Bens crazy mfos", id: "3")
-
