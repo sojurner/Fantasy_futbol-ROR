@@ -1,4 +1,4 @@
-class PlayerStats < ApplicationRecord
+class PlayerStat < ApplicationRecord
   belongs_to :country
 
   validates_presence_of :Name, 
