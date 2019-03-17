@@ -6,21 +6,21 @@ Rails.application.routes.draw do
       get 'login', to: 'sessions#new'
       post 'login', to: "sessions#create"
       delete 'logout', to: "sessions#destroy"
-      resources :users, only: [:create] do
+
+      resources :users, only: [:create, :show, :index] do
         get 'players', to: 'user_players#index'
-        post 'players', to: 'players#create'
         get 'leagues', to: 'league_users#index'
         post 'leagues', to: 'league#create'
         delete 'players/:id', to: 'user_players#destroy'
       end
 
-      resources :leagues, only: [:create] do
+      resources :leagues, only: [:create, :update, :destroy, :show] do
         get 'users', to: 'league_users#index'
-        post 'users', to: 'users#create'
-        delete 'users', to: 'users#destroy'
+        post 'users/:user_id/players/:player_id', to: 'league_user_players#create'
       end
 
-      resources :players, only: [:index]
+      resources :player_stats, only: [:index]
+      resources :countrys, only: [:index, :show]
     end
   end
 end
