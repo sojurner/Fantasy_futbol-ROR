@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_16_114434) do
+ActiveRecord::Schema.define(version: 2019_03_16_232921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(version: 2019_03_16_114434) do
     t.string "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "league_user_players", force: :cascade do |t|
+    t.integer "league_user_id"
+    t.integer "player_id"
   end
 
   create_table "league_users", force: :cascade do |t|
@@ -88,12 +93,9 @@ ActiveRecord::Schema.define(version: 2019_03_16_114434) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.integer "player_id"
-    t.integer "league_id"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "country_id"
+    t.integer "player_stat_id"
   end
 
   create_table "users", force: :cascade do |t|
