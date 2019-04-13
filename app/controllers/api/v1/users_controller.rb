@@ -22,9 +22,10 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
+
     @user = User.new(full_name: params["full_name"], user_name: params["user_name"], email: params["email"], password: params["password"])
     if @user.save
-      render json: user_json
+      render json: {**user_json, id: @user.id, status: 200}
     else
       render json: {msg: 'Unable to create user entry'}, status: 400
     end
