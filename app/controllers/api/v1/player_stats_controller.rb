@@ -8,6 +8,6 @@ class Api::V1::PlayerStatsController < ApplicationController
       starting_index = range - 25
       players = PlayerStat.limit(25).offset(starting_index)
     end
-    render json: players
+    render json: {players: players, count: PlayerStat.count}
   end
 end
